@@ -1,0 +1,43 @@
+{% extends 'client.html' %}
+{% block body %}
+<div class="back_re">
+    <div class="container">
+       <div class="row">
+          <div class="col-md-12">
+             <div class="title">
+                 <h2>Leadership Team</h2>
+             </div>
+          </div>
+       </div>
+    </div>
+ </div>
+ <!-- blog -->
+ <div  class="blog">
+    <div class="container">
+       <div class="row">
+          <div class="col-md-12">
+             <div class="titlepage">
+               
+                <!-- <p class="margin_0">Lorem Ipsum available, but the majority have suffered </p> -->
+             </div>
+          </div>
+       </div>
+       <div class="row">
+         {% for i in leadership %}
+          <div class="col-md-4">
+             <div class="blog_box">
+                <div class="blog_img">
+                   <figure><img src="/{{i.feured_image}}" alt="#"/></figure>
+                </div>
+                <div class="blog_room">
+                   <h3>{{ i.title }}</h3>
+                   <p>{{i.content}}</p>
+                </div>
+             </div>
+          </div>
+          {% endfor %}
+       </div>
+    </div>
+ </div>
+
+{% endblock %}

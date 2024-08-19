@@ -1,0 +1,96 @@
+{% load static %}
+<div class="sidebar" id="sidebar">
+    <div class="sidebar-inner slimscroll">
+       <div id="sidebar-menu" class="sidebar-menu">
+         {% if user.user_type == '1' %}
+         {% csrf_token %}
+          <ul>
+             <li class="menu-title">
+                <span>Main Menu</span>
+             </li>
+             <li class="submenu active">
+                <a href="{% url 'hod_home' %}"><i class="fas fa-user-graduate"></i> <span> Dashboard</span> <span class="menu-arrow"></span></a>
+             </li>
+             <li class="submenu">
+                <a href="#"><i class="fas fa-user-graduate"></i> <span>Users</span> <span class="menu-arrow"></span></a>
+                <ul>
+                   <li><a href="{% url 'add_user' %}">User Add</a></li>
+                   <li><a href="{% url 'view_user' %}">User View</a></li>
+                </ul>
+             </li>
+             <li class="submenu">
+                <a href="#"><i class="fas fa-chalkboard-teacher"></i> <span> Teachers</span> <span class="menu-arrow"></span></a>
+                <ul>
+                   <li><a href="teachers.html">Teacher List</a></li>
+                   <li><a href="teacher-details.html">Teacher View</a></li>
+                   <li><a href="add-teacher.html">Teacher Add</a></li>
+                   <li><a href="edit-teacher.html">Teacher Edit</a></li>
+                </ul>
+             </li>
+          </ul>
+         {% else %}
+         <ul>
+            <li class="menu-title">
+               <span>Main Menu</span>
+            </li>
+            <li class="submenu active">
+               <a href="{% url 'hod_home' %}"><i class="fas fa-user-graduate"></i> <span> Dashboard</span> <span class="menu-arrow"></span></a>
+            </li>
+            <li class="submenu">
+               <a href="#"><i class="fas fa-user-graduate"></i> <span>Users</span> <span class="menu-arrow"></span></a>
+               <ul>
+                  <li><a href="{% url 'add_user' %}">User Add</a></li>
+               </li>
+              </ul>
+              <li class="submenu">
+               <a href="#"><i class="fas fa-chalkboard-teacher"></i> <span>Logo</span> <span class="menu-arrow"></span></a>
+               <ul>
+                  <li><a href="{% url 'user_logo' %}">Logo</a></li>
+               </ul>
+            </li>
+               <li class="submenu">
+                  <a href="#"><i class="fas fa-chalkboard-teacher"></i> <span>First Page</span> <span class="menu-arrow"></span></a>
+                  <ul>
+                     <li><a href="{% url 'view_banner' %}">FirstPage</a></li>
+                     <li><a href="{% url 'main_banner' %}">Banner</a></li>
+                  </ul>
+               </li>
+               <li class="submenu">
+                  <a href="#"><i class="fas fa-chalkboard-teacher"></i> <span>About Us</span> <span class="menu-arrow"></span></a>
+                  <ul>
+                     <li><a href="{% url 'user_about_us' %}">About Us</a></li>
+                  </ul>
+               </li>
+               <li class="submenu">
+                  <a href="#"><i class="fas fa-chalkboard-teacher"></i> <span>Leadership</span> <span class="menu-arrow"></span></a>
+                  <ul>
+                     <li><a href="{% url 'user_leadership' %}">Leadership</a></li>
+                  </ul>
+               </li>
+               <li class="submenu">
+                  <a href="#"><i class="fas fa-chalkboard-teacher"></i> <span>Gallery</span> <span class="menu-arrow"></span></a>
+                  <ul>
+                     <li><a href="{% url 'user_gallery' %}">Gallery</a></li>
+                     <li><a href="{% url 'crousal' %}">Gallery</a></li>
+
+                  </ul>
+               </li>
+               <li class="submenu">
+                  <a href="#"><i class="fas fa-chalkboard-teacher"></i> <span>Our Connection</span> <span class="menu-arrow"></span></a>
+                  <ul>
+                     <li><a href="{% url 'user_event' %}">Our Connection</a></li>
+                  </ul>
+               </li>
+               <li class="submenu">
+                  <a href="#"><i class="fas fa-chalkboard-teacher"></i> <span>Contact Us</span> <span class="menu-arrow"></span></a>
+                  <ul>
+                     <li><a href="{% url 'user_contact_us' %}">Contact Us</a></li>
+                  </ul>
+               </li>
+            </ul>
+
+
+         {% endif %}
+       </div>
+    </div>
+ </div>

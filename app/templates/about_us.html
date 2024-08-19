@@ -1,0 +1,35 @@
+{% extends 'client.html' %}
+{% block body %}
+    <div class="back_re">
+       <div class="container">
+         {% for i in user_about_us %}
+          <div class="row">
+             <div class="col-md-12">
+                <div class="title">
+                   <h2>{{ i.title }}</h2>
+                </div>
+             </div>
+          </div>
+       </div>
+    </div>
+    <!-- about -->
+    <div class="about">
+       <div class="container-fluid">
+          <div class="row">
+             <div class="col-md-6">
+                <div class="titlepage">
+                   <p class="margin_0">{{i.content}}</p>
+                   <a class="read_more" href="Javascript:void(0)"> Read More</a>
+                </div>
+             </div>
+             <div class="col-md-6">
+                <div class="about_img">
+                   <figure><img src="/{{i.feured_image}}" alt="#"/></figure>
+                </div>
+             </div>
+          </div>
+       </div>
+    </div>
+    {% endfor %}
+    <!-- end about -->
+     {% endblock %}

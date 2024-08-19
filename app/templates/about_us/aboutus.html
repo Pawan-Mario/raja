@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="content container-fluid">
+    <div class="page-header">
+       <div class="row align-items-center">
+          <div class="col">
+             <h3 class="page-title">Students</h3>
+             <ul class="breadcrumb">
+                <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
+                <li class="breadcrumb-item active">Students</li>
+             </ul>
+          </div>
+       </div>
+    </div>
+    {% include 'hod/messages.html' %}
+    <div class="row">
+       <div class="col-sm-12">
+          <div class="card card-table">
+             <div class="card-body">
+                <div class="table-responsive">
+                   <table class="table table-hover table-center mb-0 datatable">
+                      <thead>
+                         <tr>
+                            <th>ID</th>
+                            <th>Title</th>
+                            <th class="text-right">Action</th>
+                         </tr>
+                      </thead>
+                      <tbody>
+                        {% for i in aboutus %}
+                         <tr>
+                            <td>{{i.id}}</td>
+                            <td>
+                               <h2 class="table-avatar">
+                                  <a href="student-details.html" class="avatar avatar-sm mr-2"><img class="avatar-img runded-circle" src="/{{i.feured_image}}" alt="User Image"></a>
+                               </h2>
+                            </td>
+                            <td>{{i.title}}</td>
+                            <td class="text-right">
+                               <div class="actions">
+                                  <a href="{% url 'edit_about_us' i.id %}" class="btn btn-sm bg-success-light mr-2">
+                                  <i class="fas fa-pen"></i>
+                                  </a>
+                               </div>
+                            </td>
+                         </tr>
+                         {% endfor %}
+                      </tbody>
+                   </table>
+                </div>
+             </div>
+          </div>
+       </div>
+    </div>
+ </div>
+
+{% endblock %}

@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="row">
+    <div class="col-sm-12">
+      <div class="card">
+        <div class="card-body">
+          <form method="post" action="{% url 'Update_leadership' %}" enctype="multipart/form-data">
+            {% csrf_token %}
+              <div class="col-12">
+                <h5 class="form-title"><span>Update About Us</span></h5>
+              </div>
+              {% include 'hod/messages.html'%}
+              <div class="col-sm-11">
+                <div class="form-group">
+                  <label>Photo</label>
+                  <input type="file" class="form-control" name="feured_image" value="{% for i in leadership %}{{i.feured_image}}{% endfor %}"/>
+                  <input type="text" class="form-control" name="post_id" value="{% for i in leadership %}{{i.id}}{% endfor %}" hidden/>
+                </div>
+              </div>
+              <div class="col-sm-11">
+                <div class="form-group">
+                  <label>Title</label>
+                  <input type="text" class="form-control" name="title" value="{% for i in leadership %}{{i.title}}{% endfor %}"/>
+                </div>
+              </div>
+              <div class="col-sm-11">
+                <div class="form-group">
+                  <label>Description</label>
+                  <textarea type="text" class="form-control" name="content">{% for i in leadership %}{{i.content|safe}}{% endfor %}</textarea>
+                </div>
+              </div>
+                <br>
+                <br>
+              <div class="col-12">
+                <button type="submit" class="btn btn-primary">Update Profile</button>
+              </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}

@@ -1,0 +1,45 @@
+{% extends 'client.html' %}
+{% load static %}
+{% block body %}
+<div class="back_re">
+    <div class="container">
+       <div class="row">
+          <div class="col-md-12">
+             <div class="title">
+               <h2>gallery</h2>
+             </div>
+          </div>
+       </div>
+    </div>
+ </div>
+<div class="container my-4">
+   <div class="owl-carousel owl-theme">
+      {% for i in gslider %}
+      <div class="item">
+        <a href="{{i.document.url}}"><img  src="/{{i.imageq}}"></a>
+      </div>
+      {% endfor %}
+      <div class="owl-nav disabled">
+   </div>
+   </div>
+</div>
+ 
+ <!-- gallery -->
+ <div  class="gallery">
+    <div class="container">
+       <div class="row">
+         {% for i in gallery %}
+          <div class="col-md-3 col-sm-6">
+             <div class="gallery_img">
+                <figure><img src="/{{i.feured_image}}" alt="#"/></figure>
+             </div>
+             <div class="blog_room">
+               <h3>{{ i.title }}</h3>
+            </div>
+          </div>
+          {% endfor %}
+       </div>
+    </div>
+ </div>
+
+{% endblock %}

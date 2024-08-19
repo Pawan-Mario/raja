@@ -1,0 +1,86 @@
+{% extends 'client.html' %}
+{% block body %}
+<div class="back_re">
+    <div class="container">
+       <div class="row">
+          <div class="col-md-12">
+             <div class="title">
+                 <h2>Contact Us</h2>
+             </div>
+          </div>
+       </div>
+    </div>
+ </div>
+ <!--  contact -->
+ <div class="contact">
+    <div class="container">
+      <h2 class="font-weight-bold text-center">Contact Details<h2>
+      <div class="row">
+         <div class="col-6">
+            <div class="d-flex flex-wrap mb-4">
+               <div class="col-sm-12 col-md-12" >
+                  <!-- <span>Contact Numnber : </span> -->
+                  {%for i in info %}
+                  <span style="cursor:pointer;"><li class="h6"><i class="fa fa-mobile" aria-hidden="true"></i><a href="tel:{{i.phone}}">&nbsp;{{i.phone}}</a></a></li></span>
+                  <span style="cursor:pointer;"><li class="h6"> <i class="fa fa-envelope" aria-hidden="true"></i><a href="mailto:{{i.email}}">&nbsp;{{i.email}}</a></li></span>
+                  <span style="cursor:pointer;"><li class="h6"><i class="fa fa-map-marker" aria-hidden="true"></i>&nbsp;{{i.address}}</li></span>
+                  {% endfor %}
+               </div>
+               <!-- <div class="col-sm-12 col-md-12" >
+                  <span>Contact Numnber : </span>
+                  <span style="cursor:pointer;"><li> <i class="fa fa-envelope" aria-hidden="true"></i><a href="#">{{info.email}}</a></li></span>
+               </div>
+               <div class="col-sm-12 col-md-12" >
+                  <span>Contact Numnber : </span>
+                  <span style="cursor:pointer;"><li><i class="fa fa-map-marker" aria-hidden="true"></i>{{info.address}}</li></span>
+               </div> -->
+            </div>   
+         </div>
+         <div class="col-6">
+            {%for i in info %}
+            <!-- <span class="px-2" style="cursor:pointer;"><a href="#"> <i class="fa fa-facebook" aria-hidden="true"></i></a></span>
+            <span class="px-2" style="cursor:pointer;"><a href="#"> <i class="fa fa-instagram" aria-hidden="true"></i></a></span> -->
+            <span class="px-2" style="cursor:pointer;"><a href="{{i.linkdin}}"><i class="fa fa-linkedin" aria-hidden="true"></i></a></span>&nbsp;&nbsp;
+            <span class="px-2" style="cursor:pointer;"><a href="{{i.youtube}}"><i class="fa fa-youtube-play" aria-hidden="true"></i></a></span>&nbsp;&nbsp;
+            <span class="px-2" style="cursor:pointer;"><a href="{{i.instagram}}"><i class="fa fa-instagram" aria-hidden="true"></i></a></span>&nbsp;&nbsp;
+            <span class="px-2" style="cursor:pointer;"><a href="{{i.twitter}}"><i class="fa fa-twitter" aria-hidden="true"></i></a></span>&nbsp;&nbsp;
+            <span class="px-2" style="cursor:pointer;"><a href="{{i.facebook}}"><i class="fa fa-facebook" aria-hidden="true"></i></a></span>
+            {% endfor %}
+         </div>   
+      </div> 
+       <div class="row">
+          <div class="col-md-6">
+             <form id="request" class="main_form" method="POST" action="{% url 'contact_us' %}">
+               {% csrf_token %}
+                <div class="row">
+                   <div class="col-md-12 ">
+                      <input class="contactus" placeholder="Name" type="type" name="name"> 
+                   </div>
+                   <div class="col-md-12">
+                      <input class="contactus" placeholder="Email" type="email" name="conemail"> 
+                      <input type="email" class="contactus" name="email"  hidden/>
+                   </div>
+                   <div class="col-md-12">
+                      <input class="contactus" placeholder="Phone Number" type="type" name="phone">                          
+                   </div>
+                   <div class="col-md-12">
+                      <textarea class="textarea" placeholder="Message" type="type" Message="Name" name="message"></textarea>
+                   </div>
+                   <div class="col-md-12">
+                      <button class="send_btn">Send</button>
+                   </div>
+                </div>
+             </form>
+          </div>
+          <div class="col-md-6">
+             <div class="map_main">
+                <div class="map-responsive">
+                   <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3770.03353287621!2d72.88855337934567!3d19.1061848!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7c873a16d2e75%3A0xc22e595f8ba2ce57!2sKheranicha%20Raja!5e0!3m2!1sen!2sin!4v1723276319403!5m2!1sen!2sin" width="600" height="400" frameborder="0" style="border:0; width: 100%;" allowfullscreen=""></iframe>
+                </div>
+             </div>
+          </div>
+       </div>
+    </div>
+ </div>
+
+{% endblock %}

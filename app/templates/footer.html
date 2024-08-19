@@ -1,0 +1,59 @@
+{% load static %}
+<footer>
+    <div class="footer">
+       <div class="container">
+          <div class="row">
+             <div class=" col-md-4">
+                <h3>Contact US</h3>
+                <ul class="conta" >
+                  {% for i in info %}
+                   <li><i class="fa fa-map-marker" aria-hidden="true"></i>hello{{i.address}}</li>
+                   <li><i class="fa fa-mobile" aria-hidden="true"></i>{{i.phone}}</li>
+                   <li> <i class="fa fa-envelope" aria-hidden="true"></i><a href="#">{{i.email}}</a></li>
+                   {% endfor %}
+                </ul>
+             </div>
+             <div class="col-md-4">
+                <h3>Menu Link</h3>
+                <ul class="link_menu">
+                   <li class="active"><a href="{% url 'index' %}">Home</a></li>
+                   <li><a href="{% url 'leadership' %}"> about</a></li>
+                   <li><a href="{% url 'gallery' %}">Leadership Team</a></li>
+                   <li><a href="{% url 'gallery' %}">Gallery</a></li>
+                   <li><a href="{% url 'event' %}">Members</a></li>
+                   <li><a href="{% url 'contact_us' %}">Contact Us</a></li>
+                </ul>
+             </div>
+             <div class="col-md-4">
+                <h3>QR Code for donation</h3>
+                {% comment %} <form class="bottom_form">
+                   <input class="enter" placeholder="Enter your email" type="text" name="Enter your email">
+                   <button class="sub_btn">subscribe</button>
+                </form> {% endcomment %}
+                <ul class="social_icon">
+                  {% for i in info %}
+                  <li><a href="{{i.linkdin}}"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+                   <li><a href="{{i.youtube}}"><i class="fa fa-youtube-play" aria-hidden="true"></i></a></li>
+                   <li><a href="{{i.instagram}}"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+                   <li><a href="{{i.twitter}}"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                   <li><a href="{{i.facebook}}"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                   {% endfor %}
+                </ul>
+             </div>
+          </div>
+       </div>
+       <div class="copyright">
+          <div class="container">
+             <div class="row">
+                <div class="col-md-10 offset-md-1">
+                   
+                   <p>
+                   © 2024 All Rights Reserved. Design by <a href="#"> Prism Solution </a>
+                   </p>
+  
+                </div>
+             </div>
+          </div>
+       </div>
+    </div>
+  </footer>
